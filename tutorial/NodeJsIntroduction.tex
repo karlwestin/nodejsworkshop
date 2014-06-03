@@ -141,16 +141,16 @@ var fs = require("fs");
 fs.readFile("textfile.txt", function(err, result) {
   console.log("we've read the file \n", result);
 });
-console.log("node is reading the file, but we don’t have to wait...");
+console.log("node is reading the file, but we don't have to wait");
 \end{lstlisting} 
 
 If you run this, the output will be: 
-\begin{lstlisting}[language=css] 
+\begin{verbatim}
 node callback.js
-node is reading the file, but we don’t have to wait...
+node is reading the file, but we don't have to wait
 we've read the file
 [text content]
-\end{lstlisting} 
+\end{verbatim} 
  
  
 \noindent The callback is the anonymous function which is passed as the second argument to the `readFile' function. When `fs.readFile' is done and has retrieved the file, it will call this anonymous function and pass in the results. 
@@ -163,7 +163,7 @@ function printFile(err, result) {
 }
 var fs = require("fs");
 fs.readFile("textfile.txt", printFile);
-console.log("node is reading the file, but we don’t have to wait...");
+console.log("node is reading the file, but we don't have to wait");
 \end{lstlisting} 
  
 \begin{lstlisting} 
@@ -172,7 +172,7 @@ var printFile = function (err, result) {
 }
 var fs = require("fs");
 fs.readFile("textfile.txt", printFile);
-console.log("node is reading the file, but we don’t have to wait...");
+console.log("node is reading the file, but we don't have to wait");
 \end{lstlisting} 
  
 \noindent Note that the following is \emph{not} correct: 
@@ -183,7 +183,7 @@ var printFile = function (err, result) {
 }
 var fs = require("fs");
 fs.readFile("textfile.txt", printFile(result));
-console.log("node is reading the file, but we don’t have to wait...");
+console.log("node is reading the file, but we don't have to wait");
 \end{lstlisting} 
  
 \noindent Here, instead of providing a function reference (that is, only the name of the function \emph{without} parentheses), we would already call the function `printFile' before executing `fs.readFile' and then pass the result that `printFile' returns as a parameter `into fs.readFile'. This is not what we want. 
