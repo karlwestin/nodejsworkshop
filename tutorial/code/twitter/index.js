@@ -2,7 +2,6 @@ var http = require('http');
 var path = require('path');
 var static = require('node-static');
 var twitter = require('ntwitter');
-var sio = require('socket.io');
 
 var currentsearch = "OpenTechShool";
 
@@ -22,29 +21,29 @@ var app = http.createServer(function(req, res) {
   file.serve(req, res);
 }).listen(port);
 
-var io = sio.listen(app);
-io.sockets.on('connection', function (socket) {
+var io = require('socket.io')(app);
+io.on('connection', function (socket) {
 
-  io.sockets.emit('new search', currentsearch);
+  io.emit('new search', currentsearch);
 
   socket.on('search', function (q) {
     query(q);
     console.log("query "+q);
-    io.sockets.emit('new search', q);
+    io.emit('new search', q);
     currentsearch = q;
   });
 });
 
-var query = function(q) { 
+var query = function(q) {
   twit.stream('statuses/filter', {'track':q}, function(stream) {
     stream.on('data', function (data) {
       if (data != undefined && data.user != undefined) {
-        io.sockets.emit('tweet', data.user.screen_name+' tweets: '+data.text);
+        io.emit('tweet', data.user.screen_name+' tweets: '+data.text);
       }
     });
 
     stream.on('error', function(error) {
-      io.sockets.emit('error', error);
+      io.emit('error', error);
     });
   });
 };
