@@ -121,7 +121,7 @@ Callbacks are an important concept in Node. Since Node is a asynchronous platfor
 Create a file named \texttt{textfile.txt} in the folder that you're working. Put some arbitrary text into it.
 
 \begin{lstlisting} 
-var result = fs.readFileStatic("textfile.txt");
+var result = fs.readFileSync("textfile.txt");
 doSomethingWithTheResult(result); 
 console.log("We are done!"); 
 \end{lstlisting}
