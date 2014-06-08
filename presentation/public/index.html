@@ -25,22 +25,8 @@
 
 <div id="impress">
      <div id="title" class="step" data-x="0" data-y="110" data-scale="4">
-        <span class="try">Build a realtime webapp using</span>
+        <span class="try">Introduction to...</span>
         <h1>Node.js</h1>
-    </div>
-
-
-    <div id="intro" class="step slide" data-x="-2200" data-y="-2400" data-scale="1.2">
-        <h2>Let's make something</h2>
-        <p>Something realtime, something cool!</p>
-        <br />
-        <p>...and by doing so, learn Node.js</p>
-    </div>
-
-    <div id="aboutme" class="step slide" data-x="-2000" data-y="-1600" data-scale="0.42">
-        <h2>About me</h2>
-        <p>Niels Doorn</p>
-        <p><a href="http://twitter.com/nielsdoorn">@nielsdoorn</a> - <a href="http://github.com/nielsdoorn">github.com/nielsdoorn</a></p>
     </div>
 
      <div id="Agenda" class="step slide" data-x="-2600" data-y="-1200" data-scale="0.2">
@@ -51,38 +37,56 @@
             <li>And probaply you'll have some questions</li>
             <li>There will be some breaks</li>
             <li>Don't worry, you will also be coding (lab)</li>
-            <li>We'll wrap up at about 17:00h</li>
+            <li>We'll wrap up at about 17:00</li>
         </ul>
     </div>
 
     <div id="aboutjs" class="step slide" data-x="0" data-y="-1000" data-scale="0.8">
-        <h2>About JavaScript</h2>
-        <p>I for one happen to like JavaScript</p>
-        <p>
-            <img src="images/whyJavaScript.png"></img>
-        </p>
-        <p>
-            <img src="images/goodparts.jpg" width="250px"></img>
-        </p>
+        <h2>Node.js is JavaScript</h2>
+        <p>Same engine as Google Chrome</p>
     </div>
 
-    <div id="sucks" class="step slide" data-x="0" data-y="-1500" data-scale="0.3">
-        <h2>Although this sucks</h2>
-        <pre><code class="language-javascript">
-            > [5, 10, 1].sort();
-
-            [ 1, 10, 5 ]
-        </code></pre>
+    <div id="aboutjs2" class="step slide" data-x="0" data-y="-2000" data-scale="0.8">
+        <h2>it has no DOM...</h2>
+        <p>which means you're not gonna use jQuery</p>
+        <p>and no document.getElementById("thing")</p>
     </div>
 
-    <div id="aboutnode" class="step slide" data-x="0" data-y="-2000">
-        <h2>About Node.js</h2>
-        <p>Node.js is an open source platform to run asynchronous JavaScript programs</p>
+    <div id="aboutjs3" class="step slide" data-x="0" data-y="-3000" data-scale="0.8">
+        <h2>... but a few other things</h2>
+        <p>Working with file systems</p>
+        <p>Receiving/sending HTTP</p>
     </div>
 
-    <div id="demos" class="step slide" data-x="1200" data-y="1100" data-scale="0.3">
-        <h2>Some demos</h2>
-        <p><a href="http://insta.nielsdoorn.nl">instagram</a>, <a href="http://cube.nielsdoorn.nl">cube.nielsdoorn.nl</a>, <a href="http://localhost:1337">twitter</a></p>
+    <div id="what-for" class="step slide" data-x="1000" data-y="-2000" data-scale="0.42">
+        <h2>What is Node.js for</h2>
+        <p>Web applications/services</p>
+        <p>Command line tools</p>
+    </div>
+
+    <div id="why" class="step slide" data-x="1000" data-y="-3000" data-scale="0.42">
+        <h2>Why Node.js</h2>
+        <p>Easy to use</p> 
+        <p>Handles huge amounts of events/connections</p>
+        <p>Not so good at heavy computational things</p>
+    </div>
+
+    <div id="blocking" class="step slide" data-x="1000" data-y="-1000" data-scale="1.2">
+        <h2>Event driven code</h2>
+        <p>When waiting for tasks, other code continues to run</p>
+        <pre><code class="language-javascript">thisReadsFromFileSystem(function() 
+  // executed once finished
+});
+console.log("this runs meanwhile");</code></pre>
+
+    </div>
+
+    <div id="callbacks" class="step slide" data-x="-2000" data-y="1000" data-scale="0.42">
+        <h2>Callbacks</h2>
+        <p>You know what will be done, you don't know when</p>
+        <pre><code class="language-javascript">thisTakesALongTime(function(err, result) {
+    // executed once finished
+});</code></pre>
     </div>
 
     <div id="helloworld" class="step slide" data-x="-1000" data-y="-1800">
@@ -93,11 +97,18 @@
         <pre><code class="language-bash">> Hello OpenTechSchool!</code></pre>
     </div>
 
-
-    <div id="why" class="step slide" data-x="1000" data-y="-2000" data-scale="0.42">
-        <h2>Why Node.js</h2>
-        <p>Easy to use and very much qualified to handle huge amounts of events</p>
-        <p>Not so good at heavy computational things</p>
+    <div id="core" class="step slide" data-x="-1000" data-y="1200" data-scale="0.6">
+        <h2>Core Modules</h2>
+        <ul>
+            <li>fs</li>
+            <li>http</li>
+            <li>net</li>
+            <li>os</li>
+            <li>buffer</li>
+            <li>url</li>
+            <li>...</li>
+        </ul>
+        <pre><code class="language-javascript">var http = require('http');</code></pre>
     </div>
 
     <div id="npm" class="step slide" data-x="-1000" data-y="-1000" data-scale="1.1">
@@ -106,37 +117,6 @@
         <pre><code class="language-bash">npm install</code></pre>
         <pre><code class="language-bash">npm search twitter</code></pre>
         <pre><code class="language-bash">npm uninstall node-static</code></pre>
-    </div>
-    
-    <div id="blocking" class="step slide" data-x="1000" data-y="-1000" data-scale="1.2">
-        <h2>Blocking the processing</h2>
-        <p>There is only one process running to do everything</p>
-    </div>
-
-    <div id="callbacks" class="step slide" data-x="-2000" data-y="1000" data-scale="0.42">
-        <h2>Callbacks</h2>
-        <p>You know what will be done, you don't know when</p>
-        <pre><code class="language-javascript">thisTakesALongTime(function() {
-    // executed once finished
-});</code></pre>
-        <p>Avoid nesting callbacks to deep :-)</p>
-    </div>
-
-    <div id="core" class="step slide" data-x="-1000" data-y="1200" data-scale="0.6">
-        <h2>Core Modules</h2>
-        <ul>
-            <li>fs</li>
-            <li>http</li>
-            <li>net</li>
-            <li>dgram</li>
-            <li>dns</li>
-            <li>os</li>
-            <li>buffer</li>
-            <li>url</li>
-            <li>path</li>
-            <li>...</li>
-        </ul>
-        <pre><code class="language-javascript">var http = require('http');</code></pre>
     </div>
 
     <div id="external" class="step slide" data-x="0" data-y="1200" data-scale="0.7">
@@ -148,6 +128,7 @@
     <div id="webserver" class="step slide" data-x="-2000" data-y="-1000" data-scale="0.8">
         <h2>Node.js for web apps</h2>
         <p>It doesn't run on a webserver, you'll have to write your own (which is fun).</p>
+        <pre><code class="language-javascript">var http = require('http');</code></pre>
     </div>
 
     <!-- labs part -->
@@ -157,13 +138,13 @@
         <ul>
             <li>Tutorial</li>
             <li>Twitter lab</li>
-            <li>Maybe your own ideas</li>
         </ul>
     </div>
 
     <div id="install" class="step slide lab" data-x="-2000" data-y="1800">
         <h2>If you haven't allready</h2>
-        <p>Install node.js and npm from <a href="http://nodejs.org">nodejs.org</a></p>
+        <p>Install node.js and npm from <a href="http://nodejs.org">nodejs.org/downloads</a></p>
+        <p>Make sure you're on 0.10+</p>
     </div>
 
     <div id="tutorial" class="step slide lab" data-x="-1000" data-y="2800">
@@ -185,37 +166,31 @@
         </ol>
     </div>
 
-    <div id="ntwitter" class="step slide lab" data-x="0" data-y="2000">
-        <h2>Ntwitter module</h2>
-        <p>We'll use ntwitter module for this, and define depencies in package.json</p>
-        <pre><code class="language-javascript">
-{
-  "name": "twitter",
-  "dependencies": {
-    "ntwitter": "0.5.x"
-  }
-}
-        </code></pre>
+    <div id="philosophy" class="step slide lab" data-x="-1000" data-y="4000">
+        <h2>OTS philosophy</h2>
+        <ul>
+            <li>When you're done with the task...</li>
+            <li>...you're a coach!</li>
+        </ul>
     </div>
-    <div id="installdeps" class="step slide lab" data-x="1000" data-y="2200">
-        <h2>Install dependencies</h2>
-        <pre><code class="language-bash">npm install</code></pre>
-    </div>
-
-    <!-- more explanation? -->
 
     <div id="material" class="step slide lab" data-x="-2200" data-y="2600">
-        <h2>Links for this workshop</h2>
+        <h2>Getting set up:</h2>
         <dl>
-            <dt>Node.js intro:</dt><dd><a href="http://xvr.in/ZAb">xvr.in/ZAb</a></dd>
-            <dt>Twitter Lab:</dt><dd><a href="http://xvr.in/bBb">xvr.in/bBb</a></dd>
+            <dt>Log on to network</dt><dd>SSID: co_up PW: clubmate</dd>
+            <dt>2nd login screen<br> (in browser)</dt><dd>usergroup | login</dd>
         </dl>
-    </div> 
+        <hr>
+        <dl>
+            <dt>Node.js intro:</dt><dd><a href="http://is.gd/IcSTtm">is.gd/IcSTtm</a></dd>
+            <dt>Twitter Lab:</dt><dd><a href="http://is.gd/PFHUoH">is.gd/PFHUoH</a></dd>
+        </dl>
+        <hr>
+        <dl>
+            <dt>Download Node.js</dt><dd><a href="http://nodejs.org/download">nodejs.org/download</a></dd>
+        </dl>
 
-    <div id="github" class="step slide lab" data-x="-3200" data-y="3200">
-        <h2>Github repository</h2>
-        Github: <a href="https://github.com/nielsdoorn/nodejsworkshop">github.com/nielsdoorn/nodejsworkshop</a>
-    </div>
+    </div> 
 </div>
 
     <script src="vendor/prism/prism.js"></script>
