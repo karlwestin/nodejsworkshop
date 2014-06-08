@@ -1,0 +1,11 @@
+Consumer key: *
+xY45kYJg59YugOdh6R36449xq
+
+Consumer secret:
+qghy181vDmXPQzHBZVMPJJOdJyFoWNZcC7pQeE8ej61fyeeRmJ
+
+Access token:
+380616577-yOaRomADrGz87j3dfwZ1qjiDUia5icbteiOl7gO2
+
+Access token secret:
+j1FjWlovfLF0lSAiUzjwW7SqZufpW3Hs6x9fLzRPpqkI3
